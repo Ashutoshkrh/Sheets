@@ -6,24 +6,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
-<body>
-    <nav class="bg-[#F9FBFD] p-2" >
+<body class = "overflow-clip">
+    <nav class="bg-[#F9FBFD]  w-screen sticky top-0 ">
         <!-- Top Navigation Bar -->
         <div class="flex items-center justify-between p-2">
             <div class="flex items-center">
                 <img src="images/logo.png" alt="icon" class="">
                 <div class="ml-2">
-                    <h1 class="text-2xl  text-[#444746] px-2">Untitled spreadsheet</h1>
+                    <h1 class="text-2xl text-[#444746] px-2">Untitled spreadsheet</h1>
                     <div class="flex space-x-2 mt-1 text-lg">
-                        <button class="  hover:bg-[#E8EBEE] px-2 rounded-md">File</button>
-                        <button class=" hover:bg-[#E8EBEE] px-2 rounded-md">Edit</button>
-                        <button class=" hover:bg-[#E8EBEE] px-2 rounded-md">View</button>
-                        <button class=" hover:bg-[#E8EBEE] px-2 rounded-md">Insert</button>
-                        <button class=" hover:bg-[#E8EBEE] px-2 rounded-md">Format</button>
-                        <button class=" hover:bg-[#E8EBEE] px-2 rounded-md">Data</button>
-                        <button class=" hover:bg-[#E8EBEE] px-2 rounded-md">Tools</button>
-                        <button class=" hover:bg-[#E8EBEE] px-2 rounded-md">Extensions</button>
-                        <button class=" hover:bg-[#E8EBEE] px-2 rounded-md">Help</button>
+                        <button class="hover:bg-[#E8EBEE] px-2 rounded-md">File</button>
+                        <button class="hover:bg-[#E8EBEE] px-2 rounded-md">Edit</button>
+                        <button class="hover:bg-[#E8EBEE] px-2 rounded-md">View</button>
+                        <button class="hover:bg-[#E8EBEE] px-2 rounded-md">Insert</button>
+                        <button class="hover:bg-[#E8EBEE] px-2 rounded-md">Format</button>
+                        <button class="hover:bg-[#E8EBEE] px-2 rounded-md">Data</button>
+                        <button class="hover:bg-[#E8EBEE] px-2 rounded-md">Tools</button>
+                        <button class="hover:bg-[#E8EBEE] px-2 rounded-md">Extensions</button>
+                        <button class="hover:bg-[#E8EBEE] px-2 rounded-md">Help</button>
                     </div>
                 </div>
             </div>
@@ -34,123 +34,78 @@
 
         <!-- Toolbar -->
         <div class="flex items-center p-2 space-x-3 bg-[#F0F4F9] rounded-full m-2">
-            <button class="m-2 w-6 h-6 bg-[#444746]" 
-                style="mask: url('images/Search.svg') no-repeat center; -webkit-mask: url('images/Search.svg') no-repeat center;"
-            ></button>
+            <button class="m-2 w-6 h-6 bg-[#444746]" style="mask: url('images/Search.svg') no-repeat center; -webkit-mask: url('images/Search.svg') no-repeat center;"></button>
 
             <!-- Tailwind Buttons with Mask -->
-<button
-  class=" w-8 h-6 bg-[#444746]"
-  style="mask: url('images/Undo.svg') no-repeat center; -webkit-mask: url('images/Undo.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-8 h-6 bg-[#444746]"
-  style="mask: url('images/Redo.svg') no-repeat center; -webkit-mask: url('images/Redo.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-8 h-6 bg-[#444746]"
-  style="mask: url('images/Print.svg') no-repeat center; -webkit-mask: url('images/Print.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-8 h-6 bg-[#444746]"
-  style="mask: url('images/Format paint.svg') no-repeat center; -webkit-mask: url('images/Format paint.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-20 h-6 bg-[#444746]"
-  style="mask: url('images/Frame 14.svg') no-repeat center; -webkit-mask: url('images/Frame 14.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-20 h-6 bg-[#444746]"
-  style="mask: url('images/Frame 15.svg') no-repeat center; -webkit-mask: url('images/Frame 15.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-20 h-6 bg-[#444746]"
-  style="mask: url('images/Frame 17.svg') no-repeat center; -webkit-mask: url('images/Frame 17.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-8 h-6 bg-[#444746]"
-  style="mask: url('images/Format bold.svg') no-repeat center; -webkit-mask: url('images/Format bold.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-8 h-6 bg-[#444746]"
-  style="mask: url('images/Format italic.svg') no-repeat center; -webkit-mask: url('images/Format italic.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-8 h-6 bg-[#444746]"
-  style="mask: url('images/Strikethrough s.svg') no-repeat center; -webkit-mask: url('images/Strikethrough s.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-8 h-6 bg-[#444746]"
-  style="mask: url('images/Frame 18.svg') no-repeat center; -webkit-mask: url('images/Frame 18.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-8 h-6 bg-[#444746]"
-  style="mask: url('images/Frame 19.svg') no-repeat center; -webkit-mask: url('images/Frame 19.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-8 h-6 bg-[#444746]"
-  style="mask: url('images/Format align right.svg') no-repeat center; -webkit-mask: url('images/Format align right.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-8 h-6 bg-[#444746]"
-  style="mask: url('images/Vertical align bottom.svg') no-repeat center; -webkit-mask: url('images/Vertical align bottom.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-8 h-6 bg-[#444746]"
-  style="mask: url('images/Wrap text.svg') no-repeat center; -webkit-mask: url('images/Wrap text.svg') no-repeat center;"
-></button>
-
-<button
-  class=" w-8 h-6 bg-[#444746]"
-  style="mask: url('images/More vert.svg') no-repeat center; -webkit-mask: url('images/More vert.svg') no-repeat center;"
-></button>
-
+            <button class="w-8 h-6 bg-[#444746]" style="mask: url('images/Undo.svg') no-repeat center; -webkit-mask: url('images/Undo.svg') no-repeat center;"></button>
+            <button class="w-8 h-6 bg-[#444746]" style="mask: url('images/Redo.svg') no-repeat center; -webkit-mask: url('images/Redo.svg') no-repeat center;"></button>
+            <button class="w-8 h-6 bg-[#444746]" style="mask: url('images/Print.svg') no-repeat center; -webkit-mask: url('images/Print.svg') no-repeat center;"></button>
+            <button class="w-8 h-6 bg-[#444746]" style="mask: url('images/Format paint.svg') no-repeat center; -webkit-mask: url('images/Format paint.svg') no-repeat center;"></button>
+            <button class="w-20 h-6 bg-[#444746]" style="mask: url('images/Frame 14.svg') no-repeat center; -webkit-mask: url('images/Frame 14.svg') no-repeat center;"></button>
+            <button class="w-20 h-6 bg-[#444746]" style="mask: url('images/Frame 15.svg') no-repeat center; -webkit-mask: url('images/Frame 15.svg') no-repeat center;"></button>
+            <button class="w-20 h-6 bg-[#444746]" style="mask: url('images/Frame 17.svg') no-repeat center; -webkit-mask: url('images/Frame 17.svg') no-repeat center;"></button>
+            <button class="w-8 h-6 bg-[#444746]" style="mask: url('images/Format bold.svg') no-repeat center; -webkit-mask: url('images/Format bold.svg') no-repeat center;"></button>
+            <button class="w-8 h-6 bg-[#444746]" style="mask: url('images/Format italic.svg') no-repeat center; -webkit-mask: url('images/Format italic.svg') no-repeat center;"></button>
+            <button class="w-8 h-6 bg-[#444746]" style="mask: url('images/Strikethrough s.svg') no-repeat center; -webkit-mask: url('images/Strikethrough s.svg') no-repeat center;"></button>
+            <button class="w-8 h-6 bg-[#444746]" style="mask: url('images/Frame 18.svg') no-repeat center; -webkit-mask: url('images/Frame 18.svg') no-repeat center;"></button>
+            <button class="w-8 h-6 bg-[#444746]" style="mask: url('images/Frame 19.svg') no-repeat center; -webkit-mask: url('images/Frame 19.svg') no-repeat center;"></button>
+            <button class="w-8 h-6 bg-[#444746]" style="mask: url('images/Format align right.svg') no-repeat center; -webkit-mask: url('images/Format align right.svg') no-repeat center;"></button>
+            <button class="w-8 h-6 bg-[#444746]" style="mask: url('images/Vertical align bottom.svg') no-repeat center; -webkit-mask: url('images/Vertical align bottom.svg') no-repeat center;"></button>
+            <button class="w-8 h-6 bg-[#444746]" style="mask: url('images/Wrap text.svg') no-repeat center; -webkit-mask: url('images/Wrap text.svg') no-repeat center;"></button>
+            <button class="w-8 h-6 bg-[#444746]" style="mask: url('images/More vert.svg') no-repeat center; -webkit-mask: url('images/More vert.svg') no-repeat center;"></button>
         </div>
+        <div class="bg-white flex p-2">hello</div>
     </nav>
     
-    <div class="w-screen  overflow-auto shadow-lg bg-white">
-        <table class="table-auto border-collapse border border-gray-300 w-full">
-          <thead class="sticky top-0 bg-gray-200">
-            <tr>
-              <th class="border border-gray-300 px-4 py-2 text-left">S.No</th>
-              <!-- Generate A-Z columns -->
-              <script>
-                document.write(
-                  Array.from({ length: 26 }, (_, i) => 
-                    `<th class="border border-gray-300 px-4 py-2 text-left">${String.fromCharCode(65 + i)}</th>`
-                  ).join("")
-                );
-              </script>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Generate 1000 rows -->
-            <script>
-              for (let row = 1; row <= 1000; row++) {
-                document.write("<tr>");
-                document.write(`<td class="border border-gray-300 px-4 py-2">${row}</td>`);
-                for (let col = 0; col < 26; col++) {
-                  document.write(`<td class="border border-gray-300 px-4 py-2"></td>`);
-                }
-                document.write("</tr>");
-              }
-            </script>
-          </tbody>
-        </table>
+
+        <div class="w-screen overflow-auto shadow-lg mt-4 bg-white h-screen">
+          <table class="table-auto border-collapse border border-gray-300 w-full">
+              <thead class="bg-[#F9FBFD] sticky top-0 z-20">
+                  <tr>
+                        
+                      <th class=" border-gray-300 px-4 py-2 pt-0 sticky left-0 border-2 bg-[#F9FBFD]"></th>
+                      <!-- Generate A-Z columns -->
+                      
+                      <script>
+                          const thead = document.querySelector('thead tr');
+                          const alphabet = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
+    
+                          alphabet.forEach(letter => {
+                              const th = document.createElement('th');
+                              th.classList.add('border', 'border-gray-300', 'px-4', 'py-2', 'text-xs', 'font-normal', 'text-[#444746]', 'bg-[#F9FBFD]');
+                              th.textContent = letter;
+                              thead.appendChild(th);
+                          });
+                      </script>
+                  </tr>
+              </thead>
+              <tbody>
+                  <!-- Generate 1000 rows -->
+                  <script>
+                      const tbody = document.querySelector('tbody');
+    
+                      for (let row = 1; row <= 1000; row++) {
+                          const tr = document.createElement('tr');
+                          
+                          // Row number (sticky left)
+                          const td = document.createElement('td');
+                          td.classList.add('border', 'border-gray-300', 'px-4', 'text-[#444746]', 'text-center', 'bg-[#F9FBFD]', 'sticky', 'left-0', 'z-10');
+                          td.textContent = row;
+                          tr.appendChild(td);
+    
+                          // Data cells
+                          for (let col = 0; col < 26; col++) {
+                              const td = document.createElement('td');
+                              td.classList.add('border', 'border-gray-300', 'px-16');
+                              tr.appendChild(td);
+                          }
+    
+                          tbody.appendChild(tr);
+                      }
+                  </script>
+              </tbody>
+          </table>
       </div>
+   
 </body>
-</html>
+</html> 
