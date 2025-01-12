@@ -1,13 +1,16 @@
 import React from "react";
 import TableRow from "./TableRow";
 
-function TableBody() {
-  const rows = Array.from({ length: 1000 }, (_, i) => i + 1);
-
+function TableBody({ tableData, onCellChange }) {
   return (
     <tbody>
-      {rows.map((rowNumber) => (
-        <TableRow key={rowNumber} rowNumber={rowNumber} />
+      {tableData.map((rowData, rowIndex) => (
+        <TableRow
+          key={rowIndex}
+          rowIndex={rowIndex}
+          rowData={rowData}
+          onCellChange={onCellChange}
+        />
       ))}
     </tbody>
   );
