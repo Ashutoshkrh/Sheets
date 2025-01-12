@@ -1,23 +1,18 @@
 import React, { useState } from "react";
 import TableHead from "./TableHead";
 import TableBody from "./TableBody";
+import Toolbar from "./Toolbar";
 
 function Spreadsheet() {
-  // For DEMO, let's do 10 rows × 5 columns:
-  // Each cell is { value: "", selected: false }
-  const initialTableData = Array.from({ length: 50 }, () =>
+  const initialTableData = Array.from({ length: 50}, () =>
     Array.from({ length: 26 }, () => ({ value: "", selected: false }))
   );
 
   const [tableData, setTableData] = useState(initialTableData);
-
-  // Track selection state
   const [isSelecting, setIsSelecting] = useState(false);
-  const [startCell, setStartCell] = useState(null); // for rectangular selection
+  const [startCell, setStartCell] = useState(null);
 
-  /* ---------------------------
-      1) Cell Value Changes
-  ----------------------------*/
+  // Update the value of a specific cell
   const handleCellChange = (rowIndex, colIndex, newValue) => {
     setTableData((prev) => {
       const updated = [...prev];
@@ -28,29 +23,18 @@ function Spreadsheet() {
       };
       return updated;
     });
-
-    console.log(
-      `Cell [row ${rowIndex + 1}, col ${String.fromCharCode(
-        65 + colIndex
-      )}] changed to "${newValue}"`
-    );
   };
 
-  /* --------------------------------------
-      2) Mouse Down: Start Selection
-  ---------------------------------------*/
+  // Mouse-down: Start selection
   const handleMouseDownCell = (rowIndex, colIndex) => {
     setIsSelecting(true);
     setStartCell({ row: rowIndex, col: colIndex });
-    // Immediately highlight this one cell
     setTableData((prev) =>
       selectRectangle(prev, rowIndex, colIndex, rowIndex, colIndex)
     );
   };
 
-  /* --------------------------------------
-      3) Mouse Over: Drag Selection
-  ---------------------------------------*/
+  // Mouse-over: Drag selection
   const handleMouseOverCell = (rowIndex, colIndex) => {
     if (!isSelecting || !startCell) return;
     setTableData((prev) =>
@@ -58,24 +42,14 @@ function Spreadsheet() {
     );
   };
 
-  /* -----------------------------------
-      4) Mouse Up: End Selection
-  ------------------------------------*/
+  // Mouse-up: End selection
   const handleMouseUp = () => {
     setIsSelecting(false);
     setStartCell(null);
   };
 
-  /* -----------------------------------
-      5) Helper: Select Rectangle
-  ------------------------------------*/
-  const selectRectangle = (
-    prevData,
-    startRow,
-    startCol,
-    endRow,
-    endCol
-  ) => {
+  // Helper: Select rectangle of cells
+  const selectRectangle = (prevData, startRow, startCol, endRow, endCol) => {
     const newData = prevData.map((row) => [...row]);
     const minRow = Math.min(startRow, endRow);
     const maxRow = Math.max(startRow, endRow);
@@ -85,10 +59,8 @@ function Spreadsheet() {
     for (let r = 0; r < newData.length; r++) {
       for (let c = 0; c < newData[r].length; c++) {
         if (r >= minRow && r <= maxRow && c >= minCol && c <= maxCol) {
-          // within rectangle
           newData[r][c] = { ...newData[r][c], selected: true };
         } else {
-          // outside rectangle
           newData[r][c] = { ...newData[r][c], selected: false };
         }
       }
@@ -96,11 +68,68 @@ function Spreadsheet() {
     return newData;
   };
 
+  // Toolbar operation: Calculate sum, average, etc., and insert the result
+  const performToolbarOperation = (operation) => {
+    const selectedValues = [];
+    let targetRow = null;
+    let targetCol = null;
+
+    tableData.forEach((row, rowIndex) => {
+      row.forEach((cell, colIndex) => {
+        if (cell.selected) {
+          selectedValues.push(parseFloat(cell.value) || 0); // Ignore non-numeric values
+          targetRow = rowIndex;
+          targetCol = colIndex;
+        }
+      });
+    });
+
+    if (selectedValues.length === 0) return;
+
+    let result = null;
+    switch (operation) {
+      case "sum":
+        result = selectedValues.reduce((a, b) => a + b, 0);
+        break;
+      case "average":
+        result = selectedValues.reduce((a, b) => a + b, 0) / selectedValues.length;
+        break;
+      case "min":
+        result = Math.min(...selectedValues);
+        break;
+      case "max":
+        result = Math.max(...selectedValues);
+        break;
+      default:
+        console.error("Unsupported operation:", operation);
+    }
+
+    if (result !== null && targetRow !== null && targetCol !== null) {
+      // Insert result into the cell to the right of the bottom-right corner of the selection
+      const nextRow = targetRow;
+      const nextCol = targetCol + 1;
+
+      setTableData((prev) => {
+        const updated = [...prev];
+        if (updated[nextRow] && updated[nextRow][nextCol]) {
+          updated[nextRow][nextCol] = {
+            ...updated[nextRow][nextCol],
+            value: result.toString(),
+          };
+        }
+        return updated;
+      });
+    }
+  };
+
   return (
     <div
       className="w-full overflow-auto shadow-lg mt-4 bg-white h-[calc(100%-136px)]"
       onMouseUp={handleMouseUp}
     >
+      {/* Toolbar with operations */}
+      <Toolbar performToolbarOperation={performToolbarOperation} />
+
       <table className="table-auto border-collapse border border-gray-300 w-full">
         <TableHead />
         <TableBody
