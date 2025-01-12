@@ -12,9 +12,9 @@ function Spreadsheet() {
 
   // Called on every keystroke in any cell
   const handleCellChange = (rowIndex, colIndex, newValue) => {
-    console.log(
-      `Cell [row ${rowIndex + 1}, col ${String.fromCharCode(65 + colIndex)}] changed to "${newValue}"`
-    ); 
+    // console.log(
+    //   `Cell [row ${rowIndex + 1}, col ${String.fromCharCode(65 + colIndex)}] changed to "${newValue}"`
+    // ); 
     setTableData((prevData) => {
       const updatedData = [...prevData];
       updatedData[rowIndex] = [...updatedData[rowIndex]];
