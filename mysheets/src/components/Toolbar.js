@@ -23,27 +23,16 @@ function Toolbar() {
 
   return (
     <div className="flex items-center p-2 space-x-3 bg-[#F0F4F9] rounded-full m-2">
-      {icons.map((icon) => {
-        if(icon === "Frame 14" || icon === "Frame 15" || icon === "Frame 17"){
-
-            return (<button
-              key={icon}
-              className="w-20 h-6 bg-[#444746]"
-              style={{
-                mask: `url('/images/${icon}.svg') no-repeat center`,
-                WebkitMask: `url('/images/${icon}.svg') no-repeat center`,
-              }}
-            ></button>)
-        }
-        return (<button
+      {icons.map((icon) => (
+        <button
           key={icon}
           className="w-8 h-6 bg-[#444746]"
           style={{
             mask: `url('/images/${icon}.svg') no-repeat center`,
             WebkitMask: `url('/images/${icon}.svg') no-repeat center`,
           }}
-        ></button>)
-})}
+        ></button>
+      ))}
     </div>
   );
 }
