@@ -28,32 +28,42 @@ When cells with both numbers and strings are selected, then only numbers are con
 ![Screenshot 2025-01-14 011419](https://github.com/user-attachments/assets/b04deabf-360b-4cf6-b67e-83b536496769)
 
 4) Converting the font of selected cells to bold by clicking on bold icon
+   
    ![Screenshot 2025-01-14 012304](https://github.com/user-attachments/assets/31f938e9-a23f-42b5-bbaf-1fdd31d2e0eb)
    
     ![Screenshot 2025-01-14 012351](https://github.com/user-attachments/assets/9179fabd-7b2c-498f-8597-2bd74f26ffeb)
 
-5) Converting font of selected cells to italic
+6) Converting font of selected cells to italic
+
+
     ![Screenshot 2025-01-14 012606](https://github.com/user-attachments/assets/0809073e-c072-4a1a-b427-26ba007992d5)
    
     ![Screenshot 2025-01-14 012641](https://github.com/user-attachments/assets/2f7e0fed-2f17-4fac-a175-4828291d3da3)
 
-6) Converting text of selected cells to uppercase
+7) Converting text of selected cells to uppercase
+
+   
    ![Screenshot 2025-01-14 012816](https://github.com/user-attachments/assets/cedb5b1b-bd9a-48f7-8805-6deab96c0c8e)
     
   ![Screenshot 2025-01-14 012851](https://github.com/user-attachments/assets/2da8c26f-9ebb-4d9a-a597-c7bb5dc3dcf9)
 
 7) Converting text of selected cells to lowercase
+   
     
   ![Screenshot 2025-01-14 013035](https://github.com/user-attachments/assets/1c70723b-f341-4a11-ab32-f698f9fa04f3)
   
   ![Screenshot 2025-01-14 013050](https://github.com/user-attachments/assets/82179f77-a72c-4083-afb7-d49b48d37f28)
 
 8) Change text colour of selected cells
+
+   
    ![Screenshot 2025-01-14 013504](https://github.com/user-attachments/assets/ed25099d-66bf-444b-ae55-561330385c9e)
 
    ![Screenshot 2025-01-14 013529](https://github.com/user-attachments/assets/b9c24e9a-d3b9-445e-b3f9-30307bd50964)
 
-9) Strikethrough
+10) Strikethrough
+
+    
   ![Screenshot 2025-01-14 013156](https://github.com/user-attachments/assets/664cfc26-aec1-452b-b274-2bd573601341)
 
   ![Screenshot 2025-01-14 013216](https://github.com/user-attachments/assets/4ecca12c-ebbc-4d56-bf76-7709ba51fcee)
