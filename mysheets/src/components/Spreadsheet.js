@@ -123,24 +123,26 @@ function Spreadsheet() {
   };
 
   return (
-    <div
-      className="w-full overflow-auto shadow-lg mt-4 bg-white h-[calc(100%-136px)]"
-      onMouseUp={handleMouseUp}
-    >
-      {/* Toolbar with operations */}
-      <Toolbar performToolbarOperation={performToolbarOperation} />
-
-      <table className="table-auto border-collapse border border-gray-300 w-full">
-        <TableHead />
-        <TableBody
-          tableData={tableData}
-          onCellChange={handleCellChange}
-          onMouseDownCell={handleMouseDownCell}
-          onMouseOverCell={handleMouseOverCell}
-        />
-      </table>
-    </div>
-  );
-}
-
+    <>
+    <Toolbar performToolbarOperation={performToolbarOperation} />
+        <div
+          className="w-full overflow-auto shadow-lg mt-4 bg-white h-[calc(100%-136px)]"
+          onMouseUp={handleMouseUp}
+        >
+          {/* Toolbar with operations */}
+          
+    
+          <table className="table-auto border-collapse border border-gray-300 w-full">
+            <TableHead />
+            <TableBody
+              tableData={tableData}
+              onCellChange={handleCellChange}
+              onMouseDownCell={handleMouseDownCell}
+              onMouseOverCell={handleMouseOverCell}
+            />
+          </table>
+        </div>
+    </>
+      );
+    }
 export default Spreadsheet;
