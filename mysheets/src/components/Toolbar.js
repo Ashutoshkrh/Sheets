@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Toolbar({ performToolbarOperation, handleBold, handleItalic, handleRedText, handleYellowText, handleGreenText, handleBlueText }) {
+function Toolbar({ performToolbarOperation, handleBold, handleItalic, handleRedText, handleYellowText, handleGreenText, handleBlueText, handleUppercase ,handleLowercase }) {
   const icons = [
     "Search",
     "Undo",
@@ -77,6 +77,24 @@ function Toolbar({ performToolbarOperation, handleBold, handleItalic, handleRedT
           WebkitMask: `url('/images/Format italic.svg') no-repeat center`,
         }}
         onClick={handleItalic}
+      ></button>
+
+      <button
+        className="w-10 h-6 bg-[#444746]"
+        style={{
+          mask: `url('/images/lowercase-to-uppercase-icon.svg') no-repeat center`,
+          WebkitMask: `url('/images/lowercase-to-uppercase-icon.svg') no-repeat center`,
+        }}
+        onClick={handleUppercase}
+      ></button>
+
+      <button
+        className="w-10 h-6 bg-[#444746]"
+        style={{
+          mask: `url('/images/uppercase-to-lowercase-icon.svg') no-repeat center`,
+          WebkitMask: `url('/images/uppercase-to-lowercase-icon.svg') no-repeat center`,
+        }}
+        onClick={handleLowercase}
       ></button>
 
       {/* Frame 18 Icon with Text Color Dropdown */}

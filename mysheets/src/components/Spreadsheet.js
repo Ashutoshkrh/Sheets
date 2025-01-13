@@ -71,22 +71,27 @@ function Spreadsheet() {
   // Toolbar operation: Calculate sum, average, etc., and insert the result
   const performToolbarOperation = (operation) => {
     const selectedValues = [];
-    let targetRow = null;
-    let targetCol = null;
-
+    let maxSelectedRow = -1;
+    let minSelectedCol = Number.MAX_SAFE_INTEGER;
+  
+    // Collect numeric values from selected cells and determine bounds
     tableData.forEach((row, rowIndex) => {
       row.forEach((cell, colIndex) => {
         if (cell.selected) {
-          selectedValues.push(parseFloat(cell.value) || 0); // Ignore non-numeric values
-          targetRow = rowIndex;
-          targetCol = colIndex;
+          if (cell.value !== "" && !isNaN(parseFloat(cell.value))) {
+            selectedValues.push(parseFloat(cell.value)); // Collect numeric values
+          }
+          maxSelectedRow = Math.max(maxSelectedRow, rowIndex); // Track the maximum row index
+          minSelectedCol = Math.min(minSelectedCol, colIndex); // Track the minimum column index
         }
       });
     });
-
+  
+    // If no valid numeric values are found, exit the function
     if (selectedValues.length === 0) return;
-
+  
     let result = null;
+  
     switch (operation) {
       case "sum":
         result = selectedValues.reduce((a, b) => a + b, 0);
@@ -101,30 +106,38 @@ function Spreadsheet() {
         result = Math.max(...selectedValues);
         break;
       case "count":
-        // Count only the cells with numeric values
-        result = selectedValues.filter(value => !isNaN(value) && value !== "").length;
+        result = selectedValues.length; // Count only valid numeric values
         break;
       default:
         console.error("Unsupported operation:", operation);
     }
-
-    if (result !== null && targetRow !== null && targetCol !== null) {
-      // Insert result into the cell to the right of the bottom-right corner of the selection
-      const nextRow = targetRow;
-      const nextCol = targetCol + 1;
-
+  
+    if (result !== null && maxSelectedRow !== -1 && minSelectedCol !== Number.MAX_SAFE_INTEGER) {
+      // Insert result into the first selected column of the row below the last selected row
+      const targetRow = maxSelectedRow + 1;
+  
       setTableData((prev) => {
         const updated = [...prev];
-        if (updated[nextRow] && updated[nextRow][nextCol]) {
-          updated[nextRow][nextCol] = {
-            ...updated[nextRow][nextCol],
-            value: result.toString(),
-          };
+        // Ensure the target row exists
+        if (!updated[targetRow]) {
+          updated[targetRow] = Array.from({ length: 26 }, () => ({
+            value: "",
+            selected: false,
+            style: "regular",
+            bgColor: "",
+          }));
         }
+        // Update the first selected column of the target row
+        updated[targetRow][minSelectedCol] = {
+          ...updated[targetRow][minSelectedCol],
+          value: result.toString(),
+        };
         return updated;
       });
     }
   };
+  
+  
 
   const handleBold = () => {
     setTableData((prev) => {
