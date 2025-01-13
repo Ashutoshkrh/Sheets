@@ -88,9 +88,9 @@ function Spreadsheet() {
     });
   
     // If no valid numeric values are found, exit the function
-    if (selectedValues.length === 0) return;
+    // if (selectedValues.length === 0) return;
+    let result = 0;
   
-    let result = null;
   
     switch (operation) {
       case "sum":
