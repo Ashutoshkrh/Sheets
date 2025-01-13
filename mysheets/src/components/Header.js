@@ -9,7 +9,7 @@ function Header() {
           <img src="/images/logo.png" alt="icon" />
           <div className="ml-2">
             <h1 className="text-2xl text-[#444746] px-2">Untitled spreadsheet</h1>
-            <div className="flex space-x-2 mt-1 text-lg">
+            {/* <div className="flex space-x-2 mt-1 text-lg">
               {["File", "Edit", "View", "Insert", "Format", "Data", "Tools", "Extensions", "Help"].map(
                 (item) => (
                   <button key={item} className="hover:bg-[#E8EBEE] px-2 rounded-md">
@@ -17,7 +17,7 @@ function Header() {
                   </button>
                 )
               )}
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="flex space-x-4">{/* Add more buttons/icons here if needed */}</div>

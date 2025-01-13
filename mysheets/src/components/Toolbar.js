@@ -1,22 +1,7 @@
 import React, { useState } from "react";
 
-function Toolbar({ performToolbarOperation, handleBold, handleItalic, handleRedText, handleYellowText, handleGreenText, handleBlueText, handleUppercase ,handleLowercase }) {
-  const icons = [
-    "Search",
-    "Undo",
-    "Redo",
-    "Print",
-    "Format paint",
-    "Frame 14",
-    "Frame 15",
-    "Frame 17",
-    "Strikethrough s",
-    "Frame 19",
-    "Format align right",
-    "Vertical align bottom",
-    "Wrap text",
-    "More vert",
-  ];
+function Toolbar({ performToolbarOperation, handleBold, handleItalic, handleRedText, handleYellowText, handleGreenText, handleBlueText, handleUppercase ,handleLowercase,handleStrikethrough }) {
+  const icons = [];
 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isTextColorDropdownOpen, setTextColorDropdownOpen] = useState(false);
@@ -96,6 +81,14 @@ function Toolbar({ performToolbarOperation, handleBold, handleItalic, handleRedT
         onClick={handleLowercase}
       ></button>
 
+        <button
+        className="w-10 h-6 bg-[#444746]"
+        style={{
+          mask: `url('/images/Strikethrough s.svg') no-repeat center`,
+          WebkitMask: `url('/images/Strikethrough s.svg') no-repeat center`,
+        }}
+        onClick={handleStrikethrough}
+      ></button>
       {/* Frame 18 Icon with Text Color Dropdown */}
       <div className="relative">
         <button

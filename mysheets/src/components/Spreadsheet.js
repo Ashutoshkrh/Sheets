@@ -273,6 +273,19 @@ function Spreadsheet() {
     });
   };
 
+    // Strikethrough function
+    const handleStrikethrough = () => {
+      setTableData((prev) => {
+        return prev.map((row) =>
+          row.map((cell) =>
+            cell.selected
+              ? { ...cell, style: "strikethrough" } // Convert text to lowercase for selected cells
+              : { ...cell }
+          )
+        );
+      });
+    };
+
   return (
     <>
       <Toolbar
@@ -288,6 +301,7 @@ function Spreadsheet() {
         handleGreenBg={handleGreenBg}
         handleUppercase={handleUppercase}
         handleLowercase={handleLowercase}
+        handleStrikethrough={handleStrikethrough}
       />
       <div
         className="w-full overflow-auto shadow-lg mt-4 bg-white h-[calc(100%-136px)]"
