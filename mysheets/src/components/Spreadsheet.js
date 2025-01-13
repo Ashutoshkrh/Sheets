@@ -5,7 +5,7 @@ import Toolbar from "./Toolbar";
 
 function Spreadsheet() {
   const initialTableData = Array.from({ length: 50}, () =>
-    Array.from({ length: 26 }, () => ({ value: "", selected: false, style: "regular"}))
+    Array.from({ length: 26 }, () => ({ value: "", selected: false, style: "regular", bgColor: ""}))
   );
 
   const [tableData, setTableData] = useState(initialTableData);
@@ -100,7 +100,7 @@ function Spreadsheet() {
       case "max":
         result = Math.max(...selectedValues);
         break;
-        case "count":
+      case "count":
         // Count only the cells with numeric values
         result = selectedValues.filter(value => !isNaN(value) && value !== "").length;
         break;
@@ -137,6 +137,7 @@ function Spreadsheet() {
       );
     });
   };
+
   const handleItalic = () => {
     setTableData((prev) => {
       return prev.map((row) =>
@@ -148,28 +149,150 @@ function Spreadsheet() {
       );
     });
   };
-  
+
+  const handleRedText = () => {
+    setTableData((prev) => {
+      return prev.map((row) =>
+        row.map((cell) =>
+          cell.selected
+            ? { ...cell, style: "redText" } // Update style to red for selected cells
+            : { ...cell }
+        )
+      );
+    });
+  };
+
+  const handleYellowText = () => {
+    setTableData((prev) => {
+      return prev.map((row) =>
+        row.map((cell) =>
+          cell.selected
+            ? { ...cell, style: "yellowText" } // Update style to yellow for selected cells
+            : { ...cell }
+        )
+      );
+    });
+  };
+
+  const handleGreenText = () => {
+    setTableData((prev) => {
+      return prev.map((row) =>
+        row.map((cell) =>
+          cell.selected
+            ? { ...cell, style: "greenText" } // Update style to green for selected cells
+            : { ...cell }
+        )
+      );
+    });
+  };
+  const handleBlueText = () => {
+    setTableData((prev) => {
+      return prev.map((row) =>
+        row.map((cell) =>
+          cell.selected
+            ? { ...cell, style: "blueText" } // Update style to green for selected cells
+            : { ...cell }
+        )
+      );
+    });
+  };
+
+  // Background color functions
+  const handleRedBg = () => {
+    setTableData((prev) => {
+      return prev.map((row) =>
+        row.map((cell) =>
+          cell.selected
+            ? { ...cell, style: "backgroundRed" } // Update background to red for selected cells
+            : { ...cell }
+        )
+      );
+    });
+  };
+
+  const handleYellowBg = () => {
+    setTableData((prev) => {
+      return prev.map((row) =>
+        row.map((cell) =>
+          cell.selected
+            ? { ...cell, style: "backgroundYellow" } // Update background to yellow for selected cells
+            : { ...cell }
+        )
+      );
+    });
+  };
+
+  const handleGreenBg = () => {
+    setTableData((prev) => {
+      return prev.map((row) =>
+        row.map((cell) =>
+          cell.selected
+            ? { ...cell, style: "backgroundGreen" } // Update background to green for selected cells
+            : { ...cell }
+        )
+      );
+    });
+  };
+
+  // Uppercase function
+  const handleUppercase = () => {
+    setTableData((prev) => {
+      return prev.map((row) =>
+        row.map((cell) =>
+          cell.selected
+            ? { ...cell, style: "uppercase" } // Convert text to uppercase for selected cells
+            : { ...cell }
+        )
+      );
+    });
+  };
+
+  // Lowercase function
+  const handleLowercase = () => {
+    setTableData((prev) => {
+      return prev.map((row) =>
+        row.map((cell) =>
+          cell.selected
+            ? { ...cell, style: "lowercase" } // Convert text to lowercase for selected cells
+            : { ...cell }
+        )
+      );
+    });
+  };
+
   return (
     <>
-    <Toolbar performToolbarOperation={performToolbarOperation} handleBold={handleBold} handleItalic = {handleItalic}/>
-        <div
-          className="w-full overflow-auto shadow-lg mt-4 bg-white h-[calc(100%-136px)]"
-          onMouseUp={handleMouseUp}
-        >
-          {/* Toolbar with operations */}
-          
-    
-          <table className="table-auto border-collapse border border-gray-300 w-full">
-            <TableHead />
-            <TableBody
-              tableData={tableData}
-              onCellChange={handleCellChange}
-              onMouseDownCell={handleMouseDownCell}
-              onMouseOverCell={handleMouseOverCell}
-            />
-          </table>
-        </div>
+      <Toolbar
+        performToolbarOperation={performToolbarOperation}
+        handleBold={handleBold}
+        handleItalic={handleItalic}
+        handleRedText={handleRedText}
+        handleYellowText={handleYellowText}
+        handleGreenText={handleGreenText}
+        handleBlueText={handleBlueText}
+        handleRedBg={handleRedBg}
+        handleYellowBg={handleYellowBg}
+        handleGreenBg={handleGreenBg}
+        handleUppercase={handleUppercase}
+        handleLowercase={handleLowercase}
+      />
+      <div
+        className="w-full overflow-auto shadow-lg mt-4 bg-white h-[calc(100%-136px)]"
+        onMouseUp={handleMouseUp}
+      >
+        {/* Toolbar with operations */}
+        <table className="table-auto border-collapse border border-gray-300 w-full">
+          <TableHead />
+          <TableBody
+            tableData={tableData}
+            onCellChange={handleCellChange}
+            onMouseDownCell={handleMouseDownCell}
+            onMouseOverCell={handleMouseOverCell}
+          />
+        </table>
+      </div>
     </>
-      );
-    }
+  );
+}
+
 export default Spreadsheet;

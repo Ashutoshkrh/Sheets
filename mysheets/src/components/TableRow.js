@@ -95,17 +95,97 @@ function TableRow({
         // const styleBold = `  ${
         //   selected ? "border-blue-300 bg-blue-100 border-2" : "border border-gray-300 min-w-32"
         // }`;
-        const StylesConfig={
-          Bold:'font-bold',
-          Semibold:'font-semibold',
-          Italic: 'italic'
+        const StylesConfig = {
+          Bold: 'font-bold',
+          Semibold: 'font-semibold',
+          Italic: 'italic',
+          RedText: 'text-red-500',
+          GreenText: 'text-green-500',
+          BlueText: 'text-blue-500',
+          YellowText: 'text-yellow-500',
+          GreyText: 'text-gray-500',
+          Underline: 'underline',
+          Strikethrough: 'line-through',
+          CenterAlign: 'text-center',
+          RightAlign: 'text-right',
+          LeftAlign: 'text-left',
+          Uppercase: 'uppercase',
+          Lowercase: 'lowercase',
+          Capitalize: 'capitalize',
+          BackgroundRed: 'bg-red-500',
+          BackgroundGreen: 'bg-green-500',
+          BackgroundBlue: 'bg-blue-500',
+          BackgroundYellow: 'bg-yellow-500',
+          BorderRed: 'border-red-500',
+          BorderGreen: 'border-green-500',
+          BorderBlue: 'border-blue-500',
+          Shadow: 'shadow-md',
+          Padding: 'p-2',
+          Margin: 'm-2',
+          BorderRadius: 'rounded-lg',
+        };        
+        
+        function mystyle(style) {
+          switch (style) {
+            case "bold":
+              return StylesConfig.Bold;
+            case "semibold":
+              return StylesConfig.Semibold;
+            case "italic":
+              return StylesConfig.Italic;
+            case "redText":
+              return StylesConfig.RedText;
+            case "greenText":
+              return StylesConfig.GreenText;
+            case "blueText":
+              return StylesConfig.BlueText;
+            case "yellowText":
+              return StylesConfig.YellowText;
+            case "greyText":
+              return StylesConfig.GreyText;
+            case "underline":
+              return StylesConfig.Underline;
+            case "strikethrough":
+              return StylesConfig.Strikethrough;
+            case "centerAlign":
+              return StylesConfig.CenterAlign;
+            case "rightAlign":
+              return StylesConfig.RightAlign;
+            case "leftAlign":
+              return StylesConfig.LeftAlign;
+            case "uppercase":
+              return StylesConfig.Uppercase;
+            case "lowercase":
+              return StylesConfig.Lowercase;
+            case "capitalize":
+              return StylesConfig.Capitalize;
+            case "backgroundRed":
+              return StylesConfig.BackgroundRed;
+            case "backgroundGreen":
+              return StylesConfig.BackgroundGreen;
+            case "backgroundBlue":
+              return StylesConfig.BackgroundBlue;
+            case "backgroundYellow":
+              return StylesConfig.BackgroundYellow;
+            case "borderRed":
+              return StylesConfig.BorderRed;
+            case "borderGreen":
+              return StylesConfig.BorderGreen;
+            case "borderBlue":
+              return StylesConfig.BorderBlue;
+            case "shadow":
+              return StylesConfig.Shadow;
+            case "padding":
+              return StylesConfig.Padding;
+            case "margin":
+              return StylesConfig.Margin;
+            case "borderRadius":
+              return StylesConfig.BorderRadius;
+            default:
+              return "";
+          }
         }
         
-        function mystyle(style){
-          if(style === "bold") return StylesConfig.Bold;
-          else if(style === "semibold") return StylesConfig.Semibold;
-          else if(style === 'italic') return StylesConfig.Italic;
-        }
 
         return (
           <td
