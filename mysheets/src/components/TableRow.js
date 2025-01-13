@@ -84,12 +84,28 @@ function TableRow({
       </td>
 
       {rowData.map((cellObject, colIndex) => {
-        const { value, selected } = cellObject;
+        const { value, selected, style } = cellObject;
+        
 
         // If selected => add thicker blue border
         const tdClassName = `  ${
           selected ? "border-blue-300 bg-blue-100 border-2" : "border border-gray-300 min-w-32"
         }`;
+        
+        // const styleBold = `  ${
+        //   selected ? "border-blue-300 bg-blue-100 border-2" : "border border-gray-300 min-w-32"
+        // }`;
+        const StylesConfig={
+          Bold:'font-bold',
+          Semibold:'font-semibold',
+          Italic: 'italic'
+        }
+        
+        function mystyle(style){
+          if(style === "bold") return StylesConfig.Bold;
+          else if(style === "semibold") return StylesConfig.Semibold;
+          else if(style === 'italic') return StylesConfig.Italic;
+        }
 
         return (
           <td
@@ -100,14 +116,17 @@ function TableRow({
             onMouseOver={() => onMouseOverCell(rowIndex, colIndex)}
           >
             <input
+            
               type="text"
-              className={`w-full h-full focus:outline-none focus:ring-4 focus:ring-blue-500 bg-transparent text-center ${
+              className={`w-full h-full focus:outline-none focus:ring-4 focus:ring-blue-500 bg-transparent text-center ${mystyle(style)} ${
                 focusedCell &&
                 focusedCell.rowIndex === rowIndex &&
                 focusedCell.colIndex === colIndex
-                  ? ""
-                  : ""
-              }`}
+                ? ""
+                : ""
+              } 
+              `
+            }
               style={{ minWidth: "50px" }}
               value={value}
               onChange={(e) => onCellChange(rowIndex, colIndex, e.target.value)}

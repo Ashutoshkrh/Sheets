@@ -5,7 +5,7 @@ import Toolbar from "./Toolbar";
 
 function Spreadsheet() {
   const initialTableData = Array.from({ length: 50}, () =>
-    Array.from({ length: 26 }, () => ({ value: "", selected: false }))
+    Array.from({ length: 26 }, () => ({ value: "", selected: false, style: "regular"}))
   );
 
   const [tableData, setTableData] = useState(initialTableData);
@@ -100,6 +100,10 @@ function Spreadsheet() {
       case "max":
         result = Math.max(...selectedValues);
         break;
+        case "count":
+        // Count only the cells with numeric values
+        result = selectedValues.filter(value => !isNaN(value) && value !== "").length;
+        break;
       default:
         console.error("Unsupported operation:", operation);
     }
@@ -122,9 +126,32 @@ function Spreadsheet() {
     }
   };
 
+  const handleBold = () => {
+    setTableData((prev) => {
+      return prev.map((row) =>
+        row.map((cell) =>
+          cell.selected
+            ? { ...cell, style: "bold" } // Update style to bold for selected cells
+            : { ...cell }
+        )
+      );
+    });
+  };
+  const handleItalic = () => {
+    setTableData((prev) => {
+      return prev.map((row) =>
+        row.map((cell) =>
+          cell.selected
+            ? { ...cell, style: "italic" } // Update style to italic for selected cells
+            : { ...cell }
+        )
+      );
+    });
+  };
+  
   return (
     <>
-    <Toolbar performToolbarOperation={performToolbarOperation} />
+    <Toolbar performToolbarOperation={performToolbarOperation} handleBold={handleBold} handleItalic = {handleItalic}/>
         <div
           className="w-full overflow-auto shadow-lg mt-4 bg-white h-[calc(100%-136px)]"
           onMouseUp={handleMouseUp}
