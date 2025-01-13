@@ -1,7 +1,7 @@
 import React from "react";
 
-function TableHead() {
-  const columns = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
+function TableHead({ cols = 26 }) {
+  const columns = Array.from({ length: cols }, (_, i) => String.fromCharCode(65 + i));
 
   return (
     <thead className="bg-[#F9FBFD] sticky top-0 z-20">
